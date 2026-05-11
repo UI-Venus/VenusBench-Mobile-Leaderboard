@@ -5,7 +5,7 @@
     "subtitle": "A Challenging and User-Centric Benchmark for Mobile GUI Agents with Capability Diagnostics",
     "team": "Venus Team, Ant Group",
     "lastUpdated": "May 11, 2026",
-    "source": "VenusBench-Mobile paper, Tables 3, 4, 5, and 9",
+    "source": "VenusBench-Mobile paper tables and latest submitted results",
     "primaryMetric": "total",
     "taskColumns": [
       { "key": "fa", "label": "FA", "description": "Function Assistance" },
@@ -123,6 +123,42 @@
         "a_l34": 33,
         "m_l12": 27,
         "m_l34": 27
+      }
+    },
+    {
+      "name": "Kimi K2.5",
+      "type": "Closed-source",
+      "setup": "End-to-end standalone agent",
+      "link": "",
+      "scores": {
+        "fa": 40.9,
+        "cf": 0.0,
+        "va": 50.0,
+        "mr": 10.0,
+        "gsa": 0.0,
+        "guim": 0.0,
+        "hgb": 20.6,
+        "nr": 43.8,
+        "bc": 50.0,
+        "total": 24.8
+      }
+    },
+    {
+      "name": "Seed 2.0",
+      "type": "Closed-source",
+      "setup": "End-to-end standalone agent",
+      "link": "",
+      "scores": {
+        "fa": 18.2,
+        "cf": 4.6,
+        "va": 43.8,
+        "mr": 10.0,
+        "gsa": 0.0,
+        "guim": 11.1,
+        "hgb": 17.7,
+        "nr": 31.3,
+        "bc": 20.0,
+        "total": 18.1
       }
     },
     {

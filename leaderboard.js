@@ -125,6 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const sortedModels = filteredModels.sort((a, b) => {
       const aValue = getValue(a, state.sortKey);
       const bValue = getValue(b, state.sortKey);
+      const aMissing = isMissing(aValue);
+      const bMissing = isMissing(bValue);
+
+      if (aMissing && bMissing) return 0;
+      if (aMissing) return 1;
+      if (bMissing) return -1;
 
       if (typeof aValue === "string" || typeof bValue === "string") {
         return state.sortDirection === "asc"
@@ -205,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="model-name">${renderModelName(model)}</td>
         ${columns.map((column, columnIndex) => `
           <td class="${columnIndex === 5 ? "border-left-strong" : ""} ${column.key === "spr" ? "total-value" : ""}">
-            ${formatPercent(model.stability[column.key], 0)}
+            ${formatPercent(getValue(model, `stability.${column.key}`), 0)}
           </td>
         `).join("")}
       </tr>
@@ -233,8 +239,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="rank-cell">${index + 1}</td>
         <td class="model-name">${renderModelName(model)}</td>
         <td>${renderTypeTag(model.type)}</td>
-        <td>${formatNumber(model.cost.tt_k, 1)}</td>
-        <td>${formatNumber(model.cost.pt, 1)}</td>
+        <td>${formatNumber(getValue(model, "cost.tt_k"), 1)}</td>
+        <td>${formatNumber(getValue(model, "cost.pt"), 1)}</td>
         <td class="total-value border-left-strong">${formatPercent(model.scores.total)}</td>
       </tr>
     `).join("");
@@ -270,8 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="rank-cell">${index + 1}</td>
         <td class="model-name">${renderModelName(model)}</td>
         ${columns.map((column, columnIndex) => `
-          <td class="${columnIndex === 0 ? "border-left-soft" : ""}">${formatPercent(model.diagnostics[column.keys[0]], 0)}</td>
-          <td>${formatPercent(model.diagnostics[column.keys[1]], 0)}</td>
+          <td class="${columnIndex === 0 ? "border-left-soft" : ""}">${formatPercent(getValue(model, `diagnostics.${column.keys[0]}`), 0)}</td>
+          <td>${formatPercent(getValue(model, `diagnostics.${column.keys[1]}`), 0)}</td>
         `).join("")}
         <td class="total-value border-left-strong">${formatPercent(getDiagnosticAverage(model), 1)}</td>
       </tr>
@@ -326,22 +332,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (key === "type") return model.type;
     if (key === "diagnostics.average") return getDiagnosticAverage(model);
 
-    return key.split(".").reduce((value, part) => {
-      if (value === undefined || value === null) return 0;
-      return value[part];
-    }, model) ?? 0;
+    const value = key.split(".").reduce((currentValue, part) => {
+      if (currentValue === undefined || currentValue === null) return null;
+      return currentValue[part];
+    }, model);
+
+    return isMissing(value) ? null : value;
   }
 
   function getDiagnosticAverage(model) {
-    const values = Object.values(model.diagnostics);
+    const values = Object.values(model.diagnostics || {}).filter((value) => !isMissing(value));
+    if (!values.length) return null;
     return values.reduce((sum, value) => sum + value, 0) / values.length;
   }
 
+  function isMissing(value) {
+    return value === undefined || value === null || value === "";
+  }
+
   function formatPercent(value, digits = 1) {
-    return `${formatNumber(value, digits)}`;
+    return formatNumber(value, digits);
   }
 
   function formatNumber(value, digits = 1) {
+    if (isMissing(value) || Number.isNaN(Number(value))) return "N/A";
     if (Number.isInteger(value) && digits === 0) return `${value}`;
     return Number(value).toFixed(digits);
   }
