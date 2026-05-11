@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="VenusBench-Mobile Leaderboard">
+  <meta name="description"
+    content="Leaderboard for VenusBench-Mobile, a challenging and user-centric benchmark for mobile GUI agents with capability diagnostics.">
+  <meta name="keywords"
+    content="VenusBench-Mobile, Mobile GUI Agents, UI Agents, Android Benchmark, GUI Agent Evaluation, Capability Diagnostics">
+  <meta name="author" content="Venus Team, Ant Group">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UI-Venus">
+  <meta property="og:title" content="VenusBench-Mobile Leaderboard">
+  <meta property="og:description"
+    content="A sortable leaderboard for VenusBench-Mobile, covering primary success rate, stability, inference cost, and capability diagnostics.">
+  <meta property="og:image" content="./ui-venus-logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VenusBench-Mobile Leaderboard">
+  <meta name="twitter:description"
+    content="Leaderboard for a challenging mobile GUI agent benchmark with capability diagnostics.">
+  <meta name="twitter:image" content="./ui-venus-logo.png">
+
+  <meta name="citation_title"
+    content="VenusBench-Mobile: A Challenging and User-Centric Benchmark for Mobile GUI Agents with Capability Diagnostics">
+  <meta name="citation_author" content="Gong, Yichen">
+  <meta name="citation_author" content="Cai, Zhuohan">
+  <meta name="citation_author" content="Dai, Sunhao">
+  <meta name="citation_author" content="Zhou, Yuqi">
+  <meta name="citation_author" content="Gu, Zhangxuan">
+  <meta name="citation_author" content="Meng, Changhua">
+  <meta name="citation_author" content="Shen, Shuheng">
+  <meta name="citation_publication_date" content="2026">
+
+  <title>VenusBench-Mobile Leaderboard</title>
+
+  <link rel="icon" type="image/x-icon" href="ui-venus-logo.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=1.0.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="more-works-container">
+    <button class="more-works-btn" id="more-works-btn" title="View more works from the Venus Team">
+      <i class="fas fa-flask"></i>
+      <span>More Works</span>
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Team</h4>
+        <button class="icon-btn close-btn" id="close-works-btn" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="https://ui-venus.github.io/VenusBench-GD-Leaderboard/" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>VenusBench-GD Leaderboard</h5>
+            <p>Multi-platform GUI grounding benchmark for diverse grounding tasks.</p>
+            <span class="work-venue">Leaderboard</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/2508.10833" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>UI-Venus Technical Report</h5>
+            <p>High-performance UI agents with reinforcement fine-tuning.</p>
+            <span class="work-venue">arXiv 2025</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="hero-section">
+      <div class="container is-max-widescreen">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="brand-row">
+              <img src="./ui-venus-logo.png" alt="UI-Venus logo" class="brand-logo">
+              <div>
+                <p class="eyebrow">Venus Team, Ant Group</p>
+                <h1>VenusBench-Mobile Leaderboard</h1>
+              </div>
+            </div>
+            <p class="subtitle">
+              A challenging and user-centric benchmark for mobile GUI agents with capability diagnostics.
+            </p>
+            <div class="publication-links">
+              <a href="https://github.com/inclusionAI/UI-Venus/tree/VenusBench-Mobile" target="_blank"
+                class="button action-link">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>GitHub</span>
+              </a>
+              <a href="https://github.com/inclusionAI/UI-Venus/tree/VenusBench-Mobile/venusbench_mobile_paper"
+                target="_blank" class="button action-link">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+              <a href="https://github.com/inclusionAI/UI-Venus/tree/VenusBench-Mobile/venusbench_mobile_files"
+                target="_blank" class="button action-link">
+                <span class="icon"><i class="fas fa-database"></i></span>
+                <span>Data</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="metric-strip" aria-label="Benchmark summary">
+            <div class="metric-item">
+              <span class="metric-label">Primary Tasks</span>
+              <strong>149</strong>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Stability Variants</span>
+              <strong>80</strong>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Apps</span>
+              <strong>27</strong>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Top SR</span>
+              <strong id="top-score">--</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section leaderboard-section">
+      <div class="container is-max-widescreen">
+        <div class="toolbar">
+          <div class="tab-group" role="tablist" aria-label="Leaderboard views">
+            <button class="tab-button active" data-view="success" role="tab" aria-selected="true">
+              <i class="fas fa-ranking-star"></i>
+              <span>Success Rate</span>
+            </button>
+            <button class="tab-button" data-view="stability" role="tab" aria-selected="false">
+              <i class="fas fa-shield-halved"></i>
+              <span>Stability</span>
+            </button>
+            <button class="tab-button" data-view="cost" role="tab" aria-selected="false">
+              <i class="fas fa-gauge-high"></i>
+              <span>Cost</span>
+            </button>
+            <button class="tab-button" data-view="diagnostics" role="tab" aria-selected="false">
+              <i class="fas fa-chart-simple"></i>
+              <span>Diagnostics</span>
+            </button>
+          </div>
+
+          <div class="filter-row">
+            <div class="control has-icons-left search-control">
+              <input class="input" id="model-search" type="search" placeholder="Search models">
+              <span class="icon is-small is-left"><i class="fas fa-magnifying-glass"></i></span>
+            </div>
+            <div class="filter-group" aria-label="Model type filter">
+              <button class="filter-button active" data-filter="all">All</button>
+              <button class="filter-button" data-filter="Open-source">Open</button>
+              <button class="filter-button" data-filter="Closed-source">Closed</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="leaderboard-shell">
+          <div class="table-heading">
+            <div>
+              <h2 id="table-title">Primary Success Rate</h2>
+              <p id="table-caption">Success Rate (%) over the 149-task primary pool.</p>
+            </div>
+            <span class="source-pill" id="source-pill">Loading data</span>
+          </div>
+
+          <div class="table-container">
+            <table id="leaderboard-table" class="table is-fullwidth is-hoverable">
+            </table>
+          </div>
+        </div>
+
+        <div class="notes-panel">
+          <h3><i class="fas fa-circle-info"></i> Notes</h3>
+          <ul>
+            <li>Primary success rate values are reported as percentages on VenusBench-Mobile's 149-task primary pool.</li>
+            <li>SPR is the Stability Pass Rate: a base task passes only when all corresponding environment settings pass.</li>
+            <li>TT is total output tokens across tasks in thousands. PT is the average per-step output tokens.</li>
+            <li>Planner-executor rows use UI-Venus-72B as the grounding executor.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="citation">
+      <div class="container is-max-desktop">
+        <h3 class="section-title">Citation</h3>
+        <pre><code>@misc{gong2026venusbenchmobile,
+  title={VenusBench-Mobile: A Challenging and User-Centric Benchmark for Mobile GUI Agents with Capability Diagnostics},
+  author={Yichen Gong and Zhuohan Cai and Sunhao Dai and Yuqi Zhou and Zhangxuan Gu and Changhua Meng and Shuheng Shen},
+  year={2026},
+  url={https://github.com/inclusionAI/UI-Venus/tree/VenusBench-Mobile}
+}</code></pre>
+        <p class="updated-text">Last updated on: <span id="last-updated">May 11, 2026</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          This website is built for <strong>VenusBench-Mobile</strong>. The layout is adapted from the VenusBench-GD
+          leaderboard.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="leaderboard.js?v=1.0.0"></script>
+  <script>
+    const moreWorksBtn = document.getElementById('more-works-btn');
+    const closeWorksBtn = document.getElementById('close-works-btn');
+    const moreWorksDropdown = document.getElementById('moreWorksDropdown');
+
+    function toggleMoreWorks() {
+      moreWorksDropdown.classList.toggle('show');
+      moreWorksBtn.classList.toggle('active');
+    }
+
+    moreWorksBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      toggleMoreWorks();
+    });
+
+    closeWorksBtn.addEventListener('click', toggleMoreWorks);
+
+    document.addEventListener('click', (event) => {
+      if (!moreWorksDropdown.contains(event.target) && !moreWorksBtn.contains(event.target)) {
+        moreWorksDropdown.classList.remove('show');
+        moreWorksBtn.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>
